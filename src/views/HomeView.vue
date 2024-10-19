@@ -36,6 +36,5 @@
 import { arrayOfRests } from '@/constants/rests';
 import { store } from '../store/store';
 import RestCard from '@/components/RestCard.vue';
-const getUrl = (name) => new URL(`../assets/images/rests/${name}`, import.meta.url);
 
 </script>

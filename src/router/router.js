@@ -7,11 +7,14 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'HomeView',
       component: HomeView
     },
     {
       path: '/rest',
-      component: GoodsView
+      name: 'GoodsView',
+      component: GoodsView,
+      props: true,
     }
   ],
   scrollBehavior(to, from, savedPosition) {

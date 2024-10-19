@@ -7,7 +7,7 @@
             <h3 class="good__title">{{good.title}}</h3>
             <p class="good__about">{{good.composition}}</p>
             <div class="good__buy">
-                <a href="#" class="btn btn__cart--goods">В корзину <img src="../assets/images/other/shopping-cart-goods.svg" alt=""></a>
+                <a href="#" class="btn btn__cart--goods" @click.prevent="$emit('addToCart', good)">В корзину <img src="../assets/images/other/shopping-cart-goods.svg" alt=""></a>
                 <p class="cart-item__price">{{good.price}} ₽</p>
             </div>
         </div>
@@ -25,8 +25,8 @@
         },
         methods: {
             getUrl(img) {
-                return new URL(`../assets/images/goods/${img}`, import.meta.url).href
-            }
+                return new URL(`../assets/images/goods/${img}`, import.meta.url).href;
+            },
         }
     }
 </script>
