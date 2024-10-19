@@ -12,31 +12,23 @@
 
                 <section class="goods" id="goods">
                     <!-- Good -->
-                    <div
-                    class="good"
-                    v-for="good in arrayOfGoods"
-                    :key="good.id"
-                    >
-                        <div>
-                            <img class="good__image" :src=getUrl(good.img) alt="">
+                    <template>
+                        <div
+                        v-for="good in arrayOfGoods"
+                        :key="good.id"
+                        >
+                            <GoodCard :good = "good" />
                         </div>
-                        <div class="good__info">
-                            <h3 class="good__title">{{good.title}}</h3>
-                            <p class="good__about">{{good.composition}}</p>
-                            <div class="good__buy">
-                                <a href="#" class="btn btn__cart--goods">В корзину <img src="../assets/images/other/shopping-cart-goods.svg" alt=""></a>
-                                <p class="cart-item__price">{{good.price}} ₽</p>
-                            </div>
-                        </div>
-                    </div>
+                    </template>
                 </section>
             </section>
         </main>
 </template>
 
 <script setup>
-    import { arrayOfGoods } from "../constants/goods";
-    const getUrl = (name) => new URL(`../assets/images/goods/${name}`, import.meta.url);
+    import GoodCard from "@/components/GoodCard.vue";
+import { arrayOfGoods } from "../constants/goods";
+
 </script>
 
 <style>
