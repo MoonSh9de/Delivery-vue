@@ -12,14 +12,11 @@
 
                 <section class="goods" id="goods">
                     <!-- Good -->
-                    <template>
-                        <div
+                    <GoodCard
                         v-for="good in arrayOfGoods"
+                        :good = "good"
                         :key="good.id"
-                        >
-                            <GoodCard :good = "good" />
-                        </div>
-                    </template>
+                        />
                 </section>
             </section>
         </main>
@@ -27,7 +24,7 @@
 
 <script setup>
     import GoodCard from "@/components/GoodCard.vue";
-import { arrayOfGoods } from "../constants/goods";
+    import { arrayOfGoods } from "../constants/goods";
 
 </script>
 

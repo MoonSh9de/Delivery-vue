@@ -25,58 +25,11 @@
         },
         methods: {
             getUrl(img) {
-                return require(`../assets/images/goods/${img}`)
+                return new URL(`../assets/images/goods/${img}`, import.meta.url).href
             }
         }
     }
 </script>
 
 <style>
-    .good {
-        max-width: 38.4rem;
-        height: 41.4rem;
-        border-radius: 0.7rem;
-        box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
-
-        transition: all 0.2s linear;
-    }
-
-    .good__about {
-        margin-bottom: 2.5rem;
-    }
-
-    .good__info {
-        padding:  0 2.4rem;
-    }
-    .good__image {
-        width: 100%;
-        height: 21.2rem;
-
-        margin-bottom: 2.5rem;
-    }
-
-    .good__buy {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .good__title {
-    margin-bottom: 1rem;
-
-    font-size: 2.4rem;
-    font-weight: 400;
-
-    }
-
-    .good__about {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: #8c8c8c;
-    }
-    .cart-item__price {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #000;
-    }
 </style>

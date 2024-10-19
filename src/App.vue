@@ -1,8 +1,8 @@
 <script setup>
-  import Header from "./components/Header.vue"
-  import Footer from "./components/Footer.vue"
-  import ModalWindow from "./components/ModalWindow.vue"
-  import { store } from "./store/index";
+  import Footer from "./components/Footer.vue";
+import Header from "./components/Header.vue";
+import ModalWindow from "./components/ModalWindow.vue";
+import { store } from "./store/store";
 
 </script>
 
