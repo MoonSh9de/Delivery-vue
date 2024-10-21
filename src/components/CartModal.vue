@@ -10,13 +10,11 @@
                 v-for="(item) in cart"
                 :key="item.id"
                 :item="item"
-                @decrement="() => decrementItem(item)"
-                @increment="() => incrementItem(item)"
             />
            </div>
 
            <div class="cart-modal__footer">
-               <p class="cart-modal__footer--price info-black">0 ₽</p>
+            <p class="cart-modal__footer--price info-black">{{ animatedTotalPrice }} ₽</p>
                <div class="cart-modal__footer--controls">
                    <button class="btn btn__primary ">Оформить заказ</button>
                    <button class="btn btn__outline " @click="clearCart()">Отмена</button>
@@ -29,6 +27,8 @@
 
 <script setup>
     import CartItem from './CartItem.vue';
+    import { computed, ref, watch } from 'vue';
+    import { store } from '@/store/store';
     const props = defineProps({
         isOpen: Boolean,
         cart: Array
@@ -38,26 +38,31 @@
     
     const closeModal = () => emit("toggleModal");
     const clearCart = () => emit('clearCart');
-    // addToCart() {
-    //             this.$emit('addToCart', this.good);
-    //         }
 
-    const decrementItem = (item) => {
-        if(item.count > 1) {
-            item.count--;
+    const totalPrice = computed(() => {
+        return store.cart.reduce((acc, item) => acc + item.price * item.count, 0);
+    });
+
+    const animatedTotalPrice = ref(0);
+
+    function animateTotalPrice() {
+    const animationSpeed = 20; // Уменьшите это значение, чтобы ускорить анимацию
+    const animationStep = (totalPrice.value - animatedTotalPrice.value) / animationSpeed;
+
+    const intervalID = setInterval(() => {
+        if (Math.abs(animatedTotalPrice.value - totalPrice.value) < Math.abs(animationStep)) {
+            animatedTotalPrice.value = totalPrice.value;
+            clearInterval(intervalID);
+            return;
         }
-        else {
-            cart.splice(index,1);
-        }
-    };
+        // Используйте Math.round для округления значения до ближайшего целого числа
+        animatedTotalPrice.value = Math.round(animatedTotalPrice.value + animationStep);
+    }, 10); // Уменьшите этот интервал времени, если хотите, чтобы значения обновлялись чаще
+}
 
-    const incrementItem = (item) => {
-        item.count++;
-    };
 
-    // const totalPrice = computed(() => {
-    //     return cart.reduce((acc, item) => acc + item.price * item.count, 0);
-    // });
+    watch(totalPrice, () => {
+    animateTotalPrice();}, { immediate: true });
 
 </script>
 
@@ -173,6 +178,8 @@
     font-weight: 400;
     color: #40A9FF;
     transition: all 0.2s linear;
+
+    cursor: pointer;
 
     }
 

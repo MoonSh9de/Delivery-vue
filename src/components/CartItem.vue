@@ -12,6 +12,8 @@
 
 
 <script>
+import { store } from '@/store/store';
+
 export default {
     name: 'CartItem',
     props: {
@@ -19,16 +21,23 @@ export default {
             type: Object,
             required: true
         },
-        index: Number
     },
-    emits: ['decrement', 'increment'],
     methods: {
-        decrement() {
-            this.$emit('decrement', this.index);
-        },
-        increment() {
-            this.$emit('increment', this.index);
+        decrementItem (item) {
+        if(item.count > 1) {
+            item.count--;
         }
+        else {
+            const index = store.cart.findIndex(cartItem => cartItem.id === item.id);
+            if(index !== -1) {
+                store.cart.splice(index,1);
+            }
+        }
+    },
+
+    incrementItem (item) {
+        item.count++;
+    },
     }
 }
 </script>
