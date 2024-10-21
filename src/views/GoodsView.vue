@@ -20,13 +20,12 @@
                 />
             </section>
         </section>
-        <CartModal :cart="cart" :isOpen="isCartOpen" @toggleModal="toggleCart" />
     </main>
 </template>
 
   
   <script setup>
-import CartModal from "@/components/CartModal.vue";
+import { store } from '@/store/store.js';
 import GoodCard from "@/components/GoodCard.vue";
 import { arrayOfRests } from '@/constants/rests';
 import { onMounted, ref } from 'vue';
@@ -35,13 +34,12 @@ import { arrayOfGoods } from "../constants/goods";
 
 const router = useRouter();
 const rest = ref({});
-const cart = ref([]); // Массив для хранения товаров в корзине
-const isCartOpen = ref(false);
+const cart = store.cart; // Массив для хранения товаров в корзине
 
 
-const toggleCart = () => {
-  isCartOpen.value = !isCartOpen.value;
-};
+// const toggleCart = () => {
+//   isCartOpen.value = !isCartOpen.value;
+// };
 
 
 onMounted(() => {
@@ -51,16 +49,19 @@ onMounted(() => {
 });
 
 const addToCart = (good) => {
-    const existingItem = cart.value.find(item => item.id === good.id);
+    const existingItem = cart.find(item => item.id === good.id);
     if (existingItem) {
         existingItem.count++;
     } else {
-        cart.value.push({ ...good, count: 1 });
+        cart.push({ ...good, count: 1 });
     }
-    toggleCart(); // Добавьте эту строку
-    console.log(cart);
-    
+    store.updateCart(cart);
 };
+
+
+    // toggleCart(); // Добавьте эту строку
+    // console.log(cart);
+
 
 
 

@@ -19,7 +19,7 @@
                <p class="cart-modal__footer--price info-black">0 ₽</p>
                <div class="cart-modal__footer--controls">
                    <button class="btn btn__primary ">Оформить заказ</button>
-                   <button class="btn btn__outline ">Отмена</button>
+                   <button class="btn btn__outline " @click="clearCart()">Отмена</button>
                </div>
            </div>
 
@@ -33,11 +33,14 @@
         isOpen: Boolean,
         cart: Array
     });
-    const emit = defineEmits(['toggleModal']);
+    const emit = defineEmits(['toggleModal', 'clearCart']);
     
     
     const closeModal = () => emit("toggleModal");
-    
+    const clearCart = () => emit('clearCart');
+    // addToCart() {
+    //             this.$emit('addToCart', this.good);
+    //         }
 
     const decrementItem = (item) => {
         if(item.count > 1) {
@@ -112,7 +115,6 @@
     .cart-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
     gap: 1rem;
 
@@ -177,5 +179,13 @@
     .cart-item__controls button:hover {
     background-color: #0e65b7;
     color: #fff;
+    }
+
+    .cart-item__price {
+    margin-right: 2rem;
+    margin-left: auto;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
     }
 </style>
