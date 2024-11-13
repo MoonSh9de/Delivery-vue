@@ -17,7 +17,7 @@
     const openModal = () => emit("toggleModal");
 </script>
 
-<style scoped>
+<style>
     header {
     padding: 4.4rem 0 0;
     margin-bottom: 4rem;

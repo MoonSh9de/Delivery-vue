@@ -5,23 +5,30 @@
                <h2 class="cart-modal__title">Корзина</h2>
                <span class="cart-modal__close" @click="closeModal()"><img src="../assets/images/other/close.svg" alt=""></span>
            </div>
-           <div class="cart-modal__body">
-            <CartItem
-                v-for="(item) in cart"
-                :key="item.id"
-                :item="item"
-            />
-           </div>
+           <div v-if="cart.length > 0">
+            <div class="cart-modal__body">
+                    <CartItem
+                        v-for="(item) in cart"
+                        :key="item.id"
+                        :item="item"
+                    />
+                </div>
 
-           <div class="cart-modal__footer">
-            <p class="cart-modal__footer--price info-black">{{ animatedTotalPrice }} ₽</p>
-               <div class="cart-modal__footer--controls">
-                   <button class="btn btn__primary ">Оформить заказ</button>
-                   <button class="btn btn__outline " @click="clearCart()">Отмена</button>
-               </div>
-           </div>
+                    <div class="cart-modal__footer">
+                        <p class="cart-modal__footer--price info-black">{{ animatedTotalPrice }} ₽</p>
+                        <div class="cart-modal__footer--controls">
+                            <button class="btn btn__primary ">Оформить заказ</button>
+                            <button class="btn btn__outline " @click="clearCart()">Отмена</button>
+                        </div>
+                    </div>
+            </div>
 
-       </div>
+            <div class="cart-modal__similar-body" v-else>
+                <p class="cart-modal__similar-subtitle">Хмм... здесь пусто 😞</p>
+                <p class="cart-modal__similar-text">Загляните на главную, чтобы выбрать ресторан и заказать Ваше любимое блюдо! 😋</p>
+                <router-link to='/' class="btn__primary cart-modal__link" @click="closeModal()">Перейти на главную</router-link>
+            </div>
+        </div>
    </div>
 </template>
 
@@ -60,18 +67,24 @@
     }, 10); // Уменьшите этот интервал времени, если хотите, чтобы значения обновлялись чаще
 }
 
-
     watch(totalPrice, () => {
     animateTotalPrice();}, { immediate: true });
+
+    function disableBodyScroll(isDisabled) {
+        if(isDisabled) document.body.classList.add("no-scroll");
+        else document.body.classList.remove("no-scroll");
+    }
 
 </script>
 
 <style>
+    body:has(.cart-modal__overlay.open) { 
+        overflow: hidden; 
+    }
     .cart-modal__overlay {
     display: none;
     align-items: center;
     justify-content: center;
-
     
     background: rgba(0, 0, 0, 0.4);
 
@@ -90,16 +103,19 @@
     cursor: pointer;
     }
     .cart-modal {
-    width: 100%;
-    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 435px;
 
-    padding: 4rem 4.5rem;
+    padding: 3.5rem;
 
     border-radius: 0.5rem;
 
     background-color: #fff;
-
+    
     }
+
     .cart-modal__header {
     display: flex;
     justify-content: space-between;
@@ -112,9 +128,13 @@
     font-size: 3.6rem;
     }
 
-
     .cart-modal__body {
-    margin-bottom: 5.3rem;
+    height: 200px;
+    overflow: auto;
+    padding: 0 1.5rem 0 0;
+    margin-bottom: 3rem;
+
+    scrollbar-color: var(--black-color) var(--gray-bg-color);
     }
 
     .cart-item {
@@ -135,6 +155,9 @@
 
     .cart-modal__footer {
     display: flex;
+    width: auto;
+    height: 45px;
+    margin-top: auto;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -194,5 +217,33 @@
     font-size: 2rem;
     font-weight: 700;
     color: #000;
+    }
+
+    .cart-modal__similar-body {
+       display: flex;
+       flex-direction: column;
+       align-items: center; 
+       text-align: center; 
+    }
+
+    .cart-modal__similar-subtitle {
+        font-size: 3rem;
+    }
+
+    .cart-modal__similar-text {
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+        padding: 0 4rem;
+
+        font-size: 2rem;
+    }
+    .cart-modal__link {
+        width: 250px;
+
+        padding: 0.75rem;
+        text-decoration: none;
+        font-size: 1.5rem;
+
+        transition: background 0.2s linear;
     }
 </style>

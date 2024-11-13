@@ -13,15 +13,15 @@
                     </ul>
                     <div class="footer__socials">
 
-                        <router-link to='/rest' class="footer__social">
+                        <router-link to='' class="footer__social">
                             <img src="../assets/images/other/instagram.svg" alt="#instagram">
                         </router-link>
 
-                        <router-link to='/rest' class="footer__social">
+                        <router-link to='' class="footer__social">
                             <img src="../assets/images/other/facebook.svg" alt="#facebook">
                         </router-link>
 
-                        <router-link to='/rest' class="footer__social">
+                        <router-link to='' class="footer__social">
                             <img src="../assets/images/other/vk.svg" alt="#VK">
                         </router-link>
                     </div>
