@@ -70,11 +70,6 @@
     watch(totalPrice, () => {
     animateTotalPrice();}, { immediate: true });
 
-    function disableBodyScroll(isDisabled) {
-        if(isDisabled) document.body.classList.add("no-scroll");
-        else document.body.classList.remove("no-scroll");
-    }
-
 </script>
 
 <style>

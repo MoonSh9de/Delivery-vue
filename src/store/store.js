@@ -3,12 +3,14 @@ import { arrayOfRests } from "@/constants/rests";
 import { reactive, ref } from "vue";
 
 export const store = reactive ({
-    isOpen: false,
+    isOpen: ref(false),
     rests: arrayOfRests,
+    modalType: ref(null),
     goods: arrayOfGoods,
-    cart: [],
-    toggleModal (value) {
+    cart: ref([]),
+    toggleModal (value, modalType = null) {
         this.isOpen = value;
+        this.modalType = modalType
     },
     updateCart(newCart) {
         this.cart = newCart;

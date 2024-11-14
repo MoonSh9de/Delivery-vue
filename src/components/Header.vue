@@ -5,8 +5,8 @@
                     <img src="../assets/images/other/logo.svg" alt="#logo">
                 </router-link>
                 <div class="header__btns">
-                    <a href="#" class="btn btn__primary"><img src="../assets/images/other/user.svg" alt="">Войти</a>
-                    <a href="#" class="btn btn__outline" @click = "openModal()"><img src="../assets/images/other/shopping-cart-header.svg" alt="">Корзина</a>
+                    <button class="btn btn__primary" @click = "$emit('toggleModal', true, 'login')"><img src="../assets/images/other/user.svg" alt="">Войти</button>
+                    <button class="btn btn__outline" @click = "$emit('toggleModal', true, 'cart')"><img src="../assets/images/other/shopping-cart-header.svg" alt="">Корзина</button>
                 </div>
             </div>  
         </header>
