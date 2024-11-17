@@ -1,12 +1,12 @@
 <template>
-  <div class="cart-modal__overlay" :class="{open: isOpen}" @click.self="closeModal()">
-       <div class="cart-modal">
-           <div class="cart-modal__header">
-               <h2 class="cart-modal__title">Корзина</h2>
-               <span class="cart-modal__close" @click="closeModal()"><img src="../assets/images/other/close.svg" alt=""></span>
+  <div class="modal__overlay" :class="{open: isOpen}" @click.self="closeModal()">
+       <div class="modal">
+           <div class="modal__header">
+               <h2 class="modal__title">Корзина</h2>
+               <span class="modal__close" @click="closeModal()"><img src="../assets/images/other/close.svg" alt=""></span>
            </div>
            <div v-if="cart.length > 0">
-            <div class="cart-modal__body">
+            <div class="modal__body">
                     <CartItem
                         v-for="(item) in cart"
                         :key="item.id"
@@ -14,28 +14,28 @@
                     />
                 </div>
 
-                    <div class="cart-modal__footer">
-                        <p class="cart-modal__footer--price info-black">{{ animatedTotalPrice }} ₽</p>
-                        <div class="cart-modal__footer--controls">
+                    <div class="modal__footer">
+                        <p class="modal__footer--price info-black">{{ animatedTotalPrice }} ₽</p>
+                        <div class="modal__footer--controls">
                             <button class="btn btn__primary ">Оформить заказ</button>
                             <button class="btn btn__outline " @click="clearCart()">Отмена</button>
                         </div>
                     </div>
             </div>
 
-            <div class="cart-modal__similar-body" v-else>
-                <p class="cart-modal__similar-subtitle">Хмм... здесь пусто 😞</p>
-                <p class="cart-modal__similar-text">Загляните на главную, чтобы выбрать ресторан и заказать Ваше любимое блюдо! 😋</p>
-                <router-link to='/' class="btn__primary cart-modal__link" @click="closeModal()">Перейти на главную</router-link>
+            <div class="modal__similar-body" v-else>
+                <p class="modal__similar-subtitle">Хмм... здесь пусто 😞</p>
+                <p class="modal__similar-text">Загляните на главную, чтобы выбрать ресторан и заказать Ваше любимое блюдо! 😋</p>
+                <router-link to='/' class="btn__primary modal__link" @click="closeModal()">Перейти на главную</router-link>
             </div>
         </div>
    </div>
 </template>
 
 <script setup>
-    import CartItem from './CartItem.vue';
-    import { computed, ref, watch } from 'vue';
     import { store } from '@/store/store';
+import { computed, ref, watch } from 'vue';
+import CartItem from './CartItem.vue';
     const props = defineProps({
         isOpen: Boolean,
         cart: Array
@@ -73,10 +73,10 @@
 </script>
 
 <style>
-    body:has(.cart-modal__overlay.open) { 
+    body:has(.modal__overlay.open) { 
         overflow: hidden; 
     }
-    .cart-modal__overlay {
+    .modal__overlay {
     display: none;
     align-items: center;
     justify-content: center;
@@ -91,13 +91,13 @@
     z-index: 2;
     }
 
-    .cart-modal__overlay.open {
+    .modal__overlay.open {
     display: flex;
     }
-    .cart-modal__close {
+    .modal__close {
     cursor: pointer;
     }
-    .cart-modal {
+    .modal {
     display: flex;
     flex-direction: column;
     width: 600px;
@@ -111,19 +111,18 @@
     
     }
 
-    .cart-modal__header {
+    .modal__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-bottom: 4.8rem;
     }
 
-    .cart-modal__title {
+    .modal__title {
     font-size: 3.6rem;
     }
 
-    .cart-modal__body {
+    .modal__body {
     height: 200px;
     overflow: auto;
     padding: 0 1.5rem 0 0;
@@ -148,7 +147,7 @@
     font-size: 400;
     }
 
-    .cart-modal__footer {
+    .modal__footer {
     display: flex;
     width: auto;
     height: 45px;
@@ -159,12 +158,12 @@
     gap: 2rem;
     }
 
-    .cart-modal__footer--controls {
+    .modal__footer--controls {
     display: flex;
     gap: 1rem;
     }
 
-    .cart-modal__footer--price {
+    .modal__footer--price {
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
@@ -214,25 +213,25 @@
     color: #000;
     }
 
-    .cart-modal__similar-body {
+    .modal__similar-body {
        display: flex;
        flex-direction: column;
        align-items: center; 
        text-align: center; 
     }
 
-    .cart-modal__similar-subtitle {
+    .modal__similar-subtitle {
         font-size: 3rem;
     }
 
-    .cart-modal__similar-text {
+    .modal__similar-text {
         margin-top: 5rem;
         margin-bottom: 3rem;
         padding: 0 4rem;
 
         font-size: 2rem;
     }
-    .cart-modal__link {
+    .modal__link {
         width: 250px;
 
         padding: 0.75rem;

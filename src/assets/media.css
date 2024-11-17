@@ -49,7 +49,7 @@
 }
 
 @media (max-width: 465px) {
-    .cart-modal__footer {
+    .modal__footer {
         justify-content: center !important; 
     }
 }
