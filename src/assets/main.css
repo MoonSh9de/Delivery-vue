@@ -71,23 +71,23 @@ main {
   background-image: linear-gradient(to bottom, #fff 80%, #F5F5F5 100%);
 }
 
-.btn {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 
-  padding: 0.8rem 1.6rem;
+    padding: 0.8rem 1.6rem;
 
-  border: 0;
-  border-radius: 0.2rem;
-  
-  font-size: 1.6rem;
-  line-height: 1.6rem;
-  text-decoration: none;
-  transition: background 0.2s linear;
+    border: 0;
+    border-radius: 0.2rem;
+    
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    text-decoration: none;
+    transition: background 0.2s linear;
 
-  cursor: pointer;
-  }
+    cursor: pointer;
+    }
 
     .btn__primary  {
         background-color: #1890ff;

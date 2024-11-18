@@ -18,10 +18,11 @@
                     <input class="login-modal__input" type="password" name="password" id="password" placeholder="Пароль" required>
                 </p>
                 <p class="remember-me custom-checkbox">
-                    <input type="checkbox" name="remember" checked>
-                    <span class="checkmark"></span>
-                    <span class="remember-me__label">Запомнить меня</span>
+                    <input type="checkbox" name="remember" id="remember" checked>
+                    <label for="remember" class="checkmark"></label>
+                    <label for="remember" class="remember-me__label">Запомнить меня</label>
                 </p>
+
                 <div class="login-modal__submit">
                     <a class="forgot-pass-link" href="#">Забыли пароль?</a>
                     <button class="btn btn__primary btn__login-modal" type="submit">Войти</button>
@@ -69,10 +70,23 @@ const closeModal = () => emit("toggleModal");
     .lable {
         position: absolute;
     }
+
     .login-modal__input {
         margin: 1rem 0;
+        border: 2px solid var(--gray-bg-color);
+
+        transition: 0.1s all linear;
     }
 
+    .login-modal__input:hover {
+        border-color: var(--black-color);
+    }
+
+    .login-modal__input:focus {
+        border-color: var(--black-color);
+        
+        outline: none;
+    }
     .btn__login {
         display: inline-block;
 
@@ -123,54 +137,61 @@ const closeModal = () => emit("toggleModal");
 
         font-size: 1.4rem;
     }
-    /* Скрываем стандартный чекбокс */
-.remember-me input[type="checkbox"] {
-    display: none;
-}
+    .custom-checkbox input {
+        display: none; /* Скрываем стандартный checkbox */
+    }
 
-/* Стили для нового чекбокса */
-.remember-me .checkmark {
-    position: relative;
-    display: inline-block;
-    width: 20px;  /* Размер чекбокса */
-    height: 20px; /* Размер чекбокса */
-    background-color: #eee; /* Цвет фона неотмеченного чекбокса */
-    border: 1px solid #ccc;
-    vertical-align: middle;
-    margin-right: 5px;
-}
+    .checkmark {
+        position: relative;
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        background-color: #fff;
+        border: 2px solid var(--gray-text-color);
+        vertical-align: middle;
+        margin-right: 8px;
 
-/* Стили для отмеченного чекбокса */
-.remember-me input[type="checkbox"]:checked + .checkmark {
-    background-color: #2196F3; /* Цвет фона отмеченного чекбокса */
-}
+        cursor: pointer;
 
-/* Создаем галочку */
-.remember-me .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
+        transition: 0.1s all linear;
+    }
+    .checkmark:hover {
+        border: 2px solid var(--black-color);
+    }
 
-/* Показываем галочку, когда чекбокс отмечен */
-.remember-me input[type="checkbox"]:checked + .checkmark:after {
-    display: block;
-    left: 7px;
-    top: 3px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
-    color: blue;
-}
+    .checkmark::after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
 
-/* Дополнительные стили для текста */
-.remember-me__label {
-    vertical-align: middle;
-    font-size: 14px; /* Размер шрифта метки */
-    color: #333; /* Цвет текста метки */
-}
+    .custom-checkbox input:checked + .checkmark {
+        background-color: var(--blue-color); /* Цвет, когда чекбокс выбран */
+        border-color: var(--blue-color);
+
+        transition: 0.1s all linear;
+    }
+    .custom-checkbox input:checked + .checkmark:hover {
+        background-color: var(--dark-blue-color); /* Цвет, когда чекбокс выбран */
+        border-color: var(--dark-blue-color);
+    }
+    .custom-checkbox input:checked + .checkmark::after {
+        display: block;
+        content: '✔'; /* Или используйте Unicode символ галочки */
+        color: white;
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%);
+        font-size: 1.6rem;
+    }
+
+    
+
+    .remember-me__label {
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
 
     .btn__login-modal {
         padding: 1rem 3rem;
