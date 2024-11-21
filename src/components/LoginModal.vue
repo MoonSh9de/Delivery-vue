@@ -2,61 +2,110 @@
     <div class="modal__overlay" :class="{open: isOpen}" @click.self="closeModal()">
          <div class="modal login-modal">
              <div class="modal__header">
-                 <h2 class="modal__title">Войти</h2>
+                 <h2 class="modal__title">Авторизация</h2>
                  <span class="modal__close" @click="closeModal()"><img src="../assets/images/other/close.svg" alt=""></span>
              </div>
-        <section class="login-modal__body">
-            <div class="login-modal__buttons">
-                <button class="btn btn__login btn__login--active" type="submit">Вход</button>
-                <button class="btn btn__login" type="submit">Регистрация</button>
+             <div class="login-modal__buttons">
+                <button
+                class="btn btn__login"
+                :class="{'btn__login--active': activeButton === 'login'}"
+                type="submit"
+                @click="setActiveButton('login')"
+                >
+                Вход</button>
+                <button
+                class="btn btn__login"
+                :class="{'btn__login--active': activeButton === 'register'}"
+                type="submit"
+                @click="setActiveButton('register')"
+                >
+                Регистрация</button>
             </div>
-            <form action="" method="get">
-                <p>
-                    <input class="login-modal__input" type="text" name="phone" id="phone" placeholder="Номер телефона" required>
+                
+            <section class="login-modal__body" v-if="activeButton === 'login'">
+                <form action="" method="get">
+                    <p>
+                        <input class="login-modal__input" type="text" name="phone" id="phone" placeholder="Номер телефона" required>
+                    </p>
+                    <p>
+                        <input class="login-modal__input" type="password" name="password" id="password" placeholder="Пароль" required>
+                    </p>
+                    <p class="remember-me custom-checkbox">
+                        <input type="checkbox" name="remember" id="remember" checked>
+                        <label for="remember" class="checkmark"></label>
+                        <label for="remember" class="remember-me__label">Запомнить меня</label>
+                    </p>
+
+                    <div class="login-modal__submit">
+                        <a class="forgot-pass-link" href="#">Забыли пароль?</a>
+                        <button class="btn btn__primary btn__login-modal" type="submit">Войти</button>
+                    </div>  
+                </form>
+                <p class="login-modal__reCAPTCHA">
+                    Этот сайт защищен reCAPTCHA, и к нему применяются
+                    <a class="login-modal__reCAPTCHA--link" target="_blank" href="https://policies.google.com/privacy">политика конфиденциальности</a> и
+                    <a class="login-modal__reCAPTCHA--link" target="_blank" href="https://policies.google.com/terms">условия использования Google</a> 
                 </p>
-                <p>
-                    <input class="login-modal__input" type="password" name="password" id="password" placeholder="Пароль" required>
-                </p>
-                <p class="remember-me custom-checkbox">
-                    <input type="checkbox" name="remember" id="remember" checked>
-                    <label for="remember" class="checkmark"></label>
-                    <label for="remember" class="remember-me__label">Запомнить меня</label>
+            </section>
+
+            <section class="login-modal__body--registration" v-else>
+                <form action="" method="get">
+                    <p>
+                        <input class="login-modal__input login-modal__input--registration" type="text" name="phone" id="phone" placeholder="Номер телефона" required>
+                    </p>
+
+                    <div class="login-modal__submit">
+                        <button class="btn btn__primary btn__login-modal" type="submit">Подтвердить</button> 
+                    </div>  
+                </form>
+
+                <p class="login-modal__agreement">
+                    Регистрируясь, Вы соглашаетесь с условиями
+                    <a class="login-modal__agreement--link" href="#">оферты</a> и даете
+                    <a class="login-modal__agreement--link" href="#">согласие на обработку ваших персональных данных</a>
                 </p>
 
-                <div class="login-modal__submit">
-                    <a class="forgot-pass-link" href="#">Забыли пароль?</a>
-                    <button class="btn btn__primary btn__login-modal" type="submit">Войти</button>
-                </div>  
-            </form>
-            <p class="reCAPTCHA">
-                Этот сайт защищен reCAPTCHA, и к нему применяются
-                <a class="reCAPTCHA__link" target="_blank" href="https://policies.google.com/privacy">политика конфиденциальности</a> и
-                <a class="reCAPTCHA__link" target="_blank" href="https://policies.google.com/terms">условия использования Google</a> 
-            </p>
-        </section>
-            </div>
+                <p class="login-modal__reCAPTCHA">
+                    Этот сайт защищен reCAPTCHA, и к нему применяются
+                    <a class="login-modal__reCAPTCHA--link" target="_blank" href="https://policies.google.com/privacy">политика конфиденциальности</a> и
+                    <a class="login-modal__reCAPTCHA--link" target="_blank" href="https://policies.google.com/terms">условия использования Google</a> 
+                </p>
+            </section>
+
         </div>
-  </template>
+    </div>
+</template>
 
 <script setup>
 
-const props = defineProps({
-    isOpen: Boolean,
-    cart: Array
-});
-const emit = defineEmits(['toggleModal']);
+    import { ref } from 'vue';
+    const activeButton = ref('login');
 
-const closeModal = () => emit("toggleModal");
+   const props = defineProps({
+        isOpen: Boolean,
+    });
 
+    const emit = defineEmits(['toggleModal']);
+    const closeModal = () => emit("toggleModal");
 
+    function setActiveButton(btn) {
+        activeButton.value = btn;
+    }
 </script>
 
 <style>
     .login-modal {
         height: auto;
     }
+    .login-modal__buttons {
+        display: flex;
+        justify-content: center;
 
-    .login-modal__body {
+        margin-bottom: 2rem;
+        
+    }
+    .login-modal__body,
+    .login-modal__body--registration {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -78,6 +127,10 @@ const closeModal = () => emit("toggleModal");
         transition: 0.1s all linear;
     }
 
+    .login-modal__input--registration {
+        margin: 1rem 0 3rem ;
+    }
+
     .login-modal__input:hover {
         border-color: var(--black-color);
     }
@@ -91,12 +144,13 @@ const closeModal = () => emit("toggleModal");
         display: inline-block;
 
         margin-right: 2rem;
-
+        padding: 1rem 3rem;
         border-radius: 1rem;
         border: 0;
         background-color: transparent;
 
         font-size: 2rem;
+
     }
 
     .login-modal__input {
@@ -105,19 +159,29 @@ const closeModal = () => emit("toggleModal");
         font-size: 1.5rem;
     }
 
-    .reCAPTCHA {
+    .login-modal__reCAPTCHA,
+    .login-modal__agreement {
         text-align: center;
         color: var(--gray-text-color);
         font-size: 1rem;
     }
-
-    .reCAPTCHA__link {
-        color: var(--gray-text-color);
+    .login-modal__reCAPTCHA {
+        opacity: 0.6;
+    }
+    .login-modal__reCAPTCHA--link,
+    .login-modal__agreement--link {
+        color: var(--black-color);
         text-decoration: none;
     }
-    .reCAPTCHA__link:hover {
-        color: var(--black-color);
+
+    .login-modal__agreement--link:hover,
+    .login-modal__reCAPTCHA--link:hover {
         text-decoration: underline;
+    }
+
+
+    .login-modal__agreement {
+        font-size: 1.3rem;
     }
 
     .login-modal__submit {
@@ -169,7 +233,7 @@ const closeModal = () => emit("toggleModal");
         background-color: var(--blue-color); /* Цвет, когда чекбокс выбран */
         border-color: var(--blue-color);
 
-        transition: 0.1s all linear;
+        transition: border 0.1s linear;
     }
     .custom-checkbox input:checked + .checkmark:hover {
         background-color: var(--dark-blue-color); /* Цвет, когда чекбокс выбран */
@@ -185,13 +249,10 @@ const closeModal = () => emit("toggleModal");
         font-size: 1.6rem;
     }
 
-    
-
     .remember-me__label {
         vertical-align: middle;
         cursor: pointer;
     }
-
 
     .btn__login-modal {
         padding: 1rem 3rem;

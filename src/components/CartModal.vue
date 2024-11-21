@@ -34,8 +34,8 @@
 
 <script setup>
     import { store } from '@/store/store';
-import { computed, ref, watch } from 'vue';
-import CartItem from './CartItem.vue';
+    import { computed, ref, watch } from 'vue';
+    import CartItem from './CartItem.vue';
     const props = defineProps({
         isOpen: Boolean,
         cart: Array

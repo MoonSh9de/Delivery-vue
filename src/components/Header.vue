@@ -14,7 +14,6 @@
 
 <script setup>
     const emit = defineEmits(['toggleModal']);
-    const openModal = () => emit("toggleModal");
 </script>
 
 <style>
