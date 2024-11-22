@@ -6,7 +6,7 @@
                 </router-link>
                 <div class="footer_content">
                     <ul class="footer__links">
-                        <li><router-link to='#' class="footer__link">О нас</router-link></li>
+                        <li><router-link to='/about' class="footer__link">О компании</router-link></li>
                         <li><router-link to='#' class="footer__link">Курьерам</router-link></li>
                         <li><router-link to='#' class="footer__link">Пресс-центр</router-link></li>
                         <li><router-link to='#' class="footer__link">Контакты</router-link></li>
