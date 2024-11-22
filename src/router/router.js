@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import GoodsView from '@/views/GoodsView.vue'
 import AboutView from '@/views/AboutView.vue'
+import PolicyView from '@/views/PolicyView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,6 +24,12 @@ const router = createRouter({
       component: AboutView,
       props: true,
     },
+    {
+      path: '/policy',
+      name: 'PolicyView',
+      component: PolicyView,
+      props: true,
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     return {top: 0 };
