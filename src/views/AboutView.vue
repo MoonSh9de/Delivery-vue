@@ -68,7 +68,7 @@
 .about__text {
 	gap: 2rem;
 
-	padding: 2rem 5rem 2rem 0;
+	padding: 3rem 5rem 3rem 0;
 
 	border-top: 1px solid var(--gray-bg-color);
   	border-bottom: 1px solid var(--gray-bg-color);
