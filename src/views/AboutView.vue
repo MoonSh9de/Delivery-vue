@@ -2,7 +2,7 @@
 	<main class="main">
 		<div class="container">
 			<section class="about">
-				<h1 class="delivery__title">О компании / Партнерам</h1>
+				<h1 class="title">О компании / Партнерам</h1>
 				<div class="about__text">
 					<p class="about__par">
 						Добро пожаловать в DeliveryFood, ведущую компанию по доставке еды из ресторанов,

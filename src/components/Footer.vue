@@ -9,7 +9,7 @@
                         <li><router-link to='/about' class="footer__link">О компании</router-link></li>
                         <li><router-link to='#' class="footer__link">Курьерам</router-link></li>
                         <li><router-link to='#' class="footer__link">Пресс-центр</router-link></li>
-                        <li><router-link to='#' class="footer__link">Контакты</router-link></li>
+                        <li><router-link to='/contacts' class="footer__link">Контакты</router-link></li>
                         <li><router-link to='/policy' class="footer__link">Политика</router-link></li>
                     </ul>
                     <div class="footer__socials">

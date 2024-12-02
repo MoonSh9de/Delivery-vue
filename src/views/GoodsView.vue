@@ -68,6 +68,70 @@ const addToCart = (good) => {
 </script>
 
   
-  <style>
-  
-  </style>
+<style>
+    .restaraunt__info--goods {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+
+    margin-bottom: 4rem;
+
+}
+
+.restaraunt__title--goods {
+    font-size: 3.6rem;
+}
+
+.goods {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+
+    flex-wrap: wrap;
+
+    padding-bottom: 11.2rem;
+}
+
+.good {
+	max-width: 38.4rem;
+	height: 41.4rem;
+	border-radius: 0.7rem;
+	box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+
+	transition: all 0.2s linear;
+}
+
+.good__about {
+	margin-bottom: 2.5rem;
+}
+
+.good__info {
+	padding:  0 2.4rem;
+}
+.good__image {
+	width: 100%;
+	height: 21.2rem;
+
+	margin-bottom: 2.5rem;
+}
+
+.good__buy {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.good__title {
+    margin-bottom: 1rem;
+
+    font-size: 2.4rem;
+    font-weight: 400;
+
+}
+
+.good__about {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #8c8c8c;
+}
+</style>

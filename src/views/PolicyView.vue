@@ -1,7 +1,7 @@
 <template>
     <main class="main">
 		<div class="container">
-            <h1 class="delivery__title">Политика в отношении обработки персональных данных</h1>
+            <h1 class="title">Политика в отношении обработки персональных данных</h1>
             <section class="policy">
                 <div class="policy__chapter">
                     <h2 class="policy__chapter--title">1 Общие положения</h2>
