@@ -15,7 +15,7 @@
                 </div>
 
                     <div class="modal__footer">
-                        <p class="modal__footer--price info-black">{{ animatedTotalPrice }} ₽</p>
+                        <p class="modal__footer--price">{{ animatedTotalPrice }} ₽</p>
                         <div class="modal__footer--controls">
                             <button class="btn btn__primary ">Оформить заказ</button>
                             <button class="btn btn__outline " @click="clearCart()">Отмена</button>
@@ -53,7 +53,7 @@
     const animatedTotalPrice = ref(0);
 
     function animateTotalPrice() {
-    const animationSpeed = 20; // Уменьшите это значение, чтобы ускорить анимацию
+    const animationSpeed = 20;
     const animationStep = (totalPrice.value - animatedTotalPrice.value) / animationSpeed;
 
     const intervalID = setInterval(() => {
@@ -62,9 +62,9 @@
             clearInterval(intervalID);
             return;
         }
-        // Используйте Math.round для округления значения до ближайшего целого числа
+        
         animatedTotalPrice.value = Math.round(animatedTotalPrice.value + animationStep);
-    }, 10); // Уменьшите этот интервал времени, если хотите, чтобы значения обновлялись чаще
+    }, 10); 
 }
 
     watch(totalPrice, () => {
@@ -164,12 +164,13 @@
     }
 
     .modal__footer--price {
+    padding: 1rem 2rem;
+
+    background-color: var(--black-color);
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
-
-    padding: 1rem 2rem;
-
+    color: var(--white-color);
     }
 
     .cart-item__controls {

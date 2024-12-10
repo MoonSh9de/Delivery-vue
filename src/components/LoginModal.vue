@@ -61,8 +61,8 @@
 
                 <p class="login-modal__agreement">
                     Регистрируясь, Вы соглашаетесь с условиями
-                    <a class="login-modal__agreement--link" href="#">оферты</a> и даете
-                    <a class="login-modal__agreement--link" href="#">согласие на обработку ваших персональных данных</a>
+                    <router-link to="/policy" target="_blank" class="login-modal__agreement--link">оферты</router-link> и даете
+                    <router-link to="/user_consent" target="_blank" class="login-modal__agreement--link">согласие на обработку ваших персональных данных</router-link>
                 </p>
 
                 <p class="login-modal__reCAPTCHA">

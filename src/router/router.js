@@ -4,6 +4,7 @@ import GoodsView from '@/views/GoodsView.vue'
 import AboutView from '@/views/AboutView.vue'
 import PolicyView from '@/views/PolicyView.vue'
 import ContactsView from '@/views/ContactsView.vue'
+import UserConsentView from '@/views/UserConsentView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +36,12 @@ const router = createRouter({
       path: '/contacts',
       name: "ContactsView",
       component: ContactsView,
+      props: true,
+    },
+    {
+      path: '/user_consent',
+      name: "UserConsentView",
+      component: UserConsentView,
       props: true,
     }
   ],
