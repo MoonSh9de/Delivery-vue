@@ -14,7 +14,7 @@
                     <div class="delivery__about">
                         <h2 class="title delivery__title">Рестораны</h2>
                         <form class="search__form" action="">
-                            <a class="search__link" href=""><img src="../assets/images/other/search.svg" alt=""></a>
+                            <img class="search__img" src="../assets/images/other/search.svg" alt="">
                             <input class="search__input" type="text" placeholder="Поиск блюд и ресторанов">
                         </form>
                     </div>
@@ -33,9 +33,8 @@
 </template>
 
 <script setup>
-import { arrayOfRests } from '@/constants/rests';
-import { store } from '../store/store';
 import RestCard from '@/components/RestCard.vue';
+import { arrayOfRests } from '@/constants/rests';
 
 </script>
 
@@ -99,7 +98,7 @@ import RestCard from '@/components/RestCard.vue';
     color: #bfbfbf;
 }
 
-.search__link {
+.search__img {
     position: absolute;
     top: 0.7rem;
     left: 1rem;

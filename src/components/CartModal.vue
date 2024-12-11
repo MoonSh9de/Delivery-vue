@@ -15,7 +15,7 @@
                 </div>
 
                     <div class="modal__footer">
-                        <p class="modal__footer--price">{{ animatedTotalPrice }} ₽</p>
+                        <p class="modal__footer--price">{{ animatedTotalPrice}} ₽</p>
                         <div class="modal__footer--controls">
                             <button class="btn btn__primary ">Оформить заказ</button>
                             <button class="btn btn__outline " @click="clearCart()">Отмена</button>
@@ -41,8 +41,7 @@
         cart: Array
     });
     const emit = defineEmits(['toggleModal', 'clearCart']);
-    
-    
+
     const closeModal = () => emit("toggleModal");
     const clearCart = () => emit('clearCart');
 
@@ -66,9 +65,10 @@
         animatedTotalPrice.value = Math.round(animatedTotalPrice.value + animationStep);
     }, 10); 
 }
-
+    
     watch(totalPrice, () => {
-    animateTotalPrice();}, { immediate: true });
+        animateTotalPrice(totalPrice);}, { immediate: true });
+
 
 </script>
 
@@ -170,7 +170,7 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 400;
-    color: var(--white-color);
+    color: var(--white-color)
     }
 
     .cart-item__controls {
@@ -179,7 +179,9 @@
     }
 
     .cart-item__control--count {
-    margin: 0 1.6rem;
+        width: 40px;
+
+        text-align: center;
 
     font-size: 1.6rem;
     font-weight: 400;

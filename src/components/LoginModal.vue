@@ -150,7 +150,7 @@
         background-color: transparent;
 
         font-size: 2rem;
-
+        transition: 0.3s linear all;
     }
 
     .login-modal__input {
@@ -260,5 +260,7 @@
     .btn__login--active {
         background-color: var(--black-color);
         color: var(--white-color);
+
+        transition: 0.3s linear all;
     }
 </style>

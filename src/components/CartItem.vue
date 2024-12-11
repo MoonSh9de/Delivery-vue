@@ -1,7 +1,7 @@
 <template>
     <div class="cart-item">
         <h3 class="cart_item__title">{{item.title}}</h3>
-        <p class="cart-item__price">{{item.price}} ₽</p>
+        <p class="cart-item__price">{{itemPrice}} ₽</p>
         <div class="cart-item__controls">
             <button @click="decrementItem(item)">-</button>
             <p class="cart-item__control--count">{{item.count}}</p>
@@ -13,7 +13,6 @@
 
 <script>
 import { store } from '@/store/store';
-
 export default {
     name: 'CartItem',
     props: {
@@ -21,6 +20,21 @@ export default {
             type: Object,
             required: true
         },
+    },
+    
+    data() {
+        return {
+            itemPrice: 0
+        }
+    },
+
+    watch: {
+
+        'item.count': {
+            handler() {
+                this.itemPrice = this.item.price * this.item.count;
+
+            }, immediate: true}
     },
     methods: {
         decrementItem (item) {
@@ -40,4 +54,5 @@ export default {
     },
     }
 }
+
 </script>
