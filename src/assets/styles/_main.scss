@@ -1,0 +1,23 @@
+//raiting
+.rank {
+    margin: 0 2.6rem 0 0.75rem;
+
+    font-size: 1.8rem;
+    color: $orange-color;
+}
+.price {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    color: $gray-text-color;
+}
+.dot {
+    margin: 0 1rem;
+}
+
+.cost {
+    margin-left: 0.5rem;
+}
+.star_img {
+    margin-bottom: 0.3rem;
+}

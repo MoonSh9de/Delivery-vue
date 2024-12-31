@@ -35,66 +35,66 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 footer {
     width: 100%;
 
     margin-top: auto;
     padding: 6rem 0;
+
+    .container--footer {
+        display: flex;
+    }
+
+    .footer_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        width: 100%;
+
+        margin-left: 3.55rem;
+
+        font-size: 1.8rem;
+
+        .footer__links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer__link {
+            text-decoration: none;
+            color: $gray-color--link;
+
+            transition: color 0.2s linear;
+        }
+
+        .footer__link:hover {
+            color: $blue-color;
+        }
+    }
+
+    .footer__socials {
+        display: flex;
+        gap: 2.1rem;
+        align-items: center;
+
+        .footer__social {
+            display: inline-block;
+
+            transition: all 0.2s linear;
+
+            cursor: pointer;
+        }
+
+        .footer__social:hover {
+            transform: scale(1.2);
+        }
+    }
+
 }
 
-.container--footer {
-    display: flex;
-}
-
-.footer_content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    width: 100%;
-
-    margin-left: 3.55rem;
-
-    font-size: 1.8rem;
-}
-
-
-.footer__links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-.footer__link {
-
-    text-decoration: none;
-    color: #595959;
-
-    transition: color 0.2s linear;
-}
-
-.footer__link:hover {
-    color: #1890ff;
-}
-
-.footer__socials {
-    display: flex;
-    gap: 2.1rem;
-    align-items: center;
-}
-
-.footer__social {
-    display: inline-block;
-
-    transition: all 0.2s linear;
-
-    cursor: pointer;
-}
-
-.footer__social:hover {
-transform: scale(1.2);
-}
 </style>

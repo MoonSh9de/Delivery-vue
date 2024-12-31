@@ -16,24 +16,25 @@
     const emit = defineEmits(['toggleModal']);
 </script>
 
-<style>
+<style lang="scss">
     header {
-    padding: 4.4rem 0 0;
     margin-bottom: 4rem;
+    padding: 4.4rem 0 0;
 
-    background-color: #fff;
-    }
+    background-color: $white-color;
+
     .container--header {
-    display: flex;
-    justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
     }
     .logo {
-    display: inline-block;
-    cursor: pointer;
+        display: inline-block;
+        cursor: pointer;
     }
 
     .header__btns {
-    display: flex;
-    gap: 0.8rem;
+        display: flex;
+        gap: 0.8rem;
     }
+}
 </style>

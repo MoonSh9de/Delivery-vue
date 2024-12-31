@@ -8,7 +8,7 @@
             <p class="good__about">{{good.composition}}</p>
             <div class="good__buy">
                 <button href="" class="btn btn__cart--goods" @click="addToCart">В корзину <img src="../assets/images/other/shopping-cart-goods.svg" alt=""></button>
-                <p class="cart-item__price">{{good.price}} ₽</p>
+                <p class="good__price">{{good.price}} ₽</p>
             </div>
         </div>
     </div>
@@ -34,5 +34,56 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+
+.good {
+	max-width: 38.4rem;
+	height: 41.4rem;
+	border-radius: 0.7rem;
+	box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+
+	transition: all 0.2s linear;
+
+    .good__image {
+        width: 100%;
+        height: 21.2rem;
+
+        margin-bottom: 2.5rem;
+    }
+
+    .good__info {
+        padding:  0 2.4rem;
+
+        .good__title {
+            margin-bottom: 1rem;
+
+            font-size: 2.4rem;
+            font-weight: 400;
+
+        }
+
+        .good__about {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #8c8c8c;
+        }
+
+        .good__buy {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 3rem;
+
+            .good__price {
+                padding: 0.8rem 1.6rem;
+                background-color: $black-color;
+                text-align: center;
+                font-size: 1.6rem;
+                font-weight: 400;
+                color: $white-color;
+            }
+        }
+    }   
+}
 </style>

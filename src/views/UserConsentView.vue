@@ -47,7 +47,7 @@
 
 </template>
 
-<style>
+<style lang="scss">
 .user-consent {
     display: flex;
     flex-direction: column;
@@ -56,22 +56,25 @@
     padding: 2rem 2rem 4rem;
 
     font-size: 1.5rem;
-    color: var(--gray-text-color);
+    color: $gray-text-color;
+
+    .user-consent--table {
+        border-collapse: collapse;
+
+        .user-consent--list {
+            list-style-type: disc;
+            margin-left: 1rem
+        }
+    }
+
+    .user-consent--table > table, th, td {
+        padding: 1rem;
+
+        border: 1px solid $black-color;
+    }
 }
 .user-consent > p {
     text-indent: 3rem;
 }
 
-.user-consent--table {
-    border-collapse: collapse;
-}
-
-.user-consent--table > table, th, td {
-    padding: 1rem;
-    border: 1px solid var(--black-color);
-}
-.user-consent--list {
-    list-style-type: disc;
-    margin-left: 1rem
-}
 </style>

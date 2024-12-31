@@ -1,5 +1,5 @@
 <template>
-    <main class="main">
+    <main class="main policy__main">
 		<div class="container">
             <h1 class="title">Политика в отношении обработки персональных данных</h1>
             <section class="policy">
@@ -61,7 +61,7 @@
                         <p>
                             В настоящем документе применяют следующие обозначения и сокращения: 
                         </p>
-                        <table>
+                        <table class="policy__table">
                             <tr>
                                 <td>
                                     ГПХ
@@ -116,7 +116,7 @@
                         <p>
                             В настоящем документе применяют следующие термины с соответствующими определениями:  
                         </p>
-                        <table>
+                        <table class="policy__table">
                             <tr>
                                 <td>
                                     Автоматизированная обработка ПДн
@@ -581,77 +581,83 @@
     </main>
 </template>
 
-<style scoped> 
+<style lang="scss"> 
+.policy__main {
+    padding-bottom: 2rem;
 
-.policy {
-    margin: 2rem 0;
-    padding: 2rem 0;
+    .policy {
+        margin: 2rem 0;
+        padding: 2rem 0;
 
-    border-top: 1px solid var(--gray-bg-color);
-}
-.policy,
-.policy__chapter,
-.policy__chapter--text{
-    display: flex;
-    flex-direction: column;
-}
-.policy,
-.policy__chapter {
-    gap: 2rem;
+        border-top: 1px solid $gray-bg-color;
 
-    color: var(--gray-text-color);
+        .policy__chapter {
+            .policy__chapter--title{
+                font-size: 2.5rem;
+            }
+
+            .policy__chapter--subtitle {
+                font-size: 2rem;
+            }
+
+            .policy__chapter--text{
+                gap: 1rem;
+
+                font-size: 1.5rem;
+            }
+
+            .policy__chapter--text > p, ul,ol {
+                text-indent: 3rem;
+            }
+            .policy__table {
+                display: flex;
+                border-collapse: collapse;
+                table-layout: auto;
+                width: 100%;
+
+                .policy__chapter--list > li{
+                    list-style-type:lower-alpha;
+                    
+                    margin: 0.5rem 0 0.5rem 3rem;
+                }
+                
+                td {
+                    width: max-content;
+
+                    padding: 1rem 0.5rem;
+                }
+
+                ol > li {
+                    margin: 0.5rem 0 0.5rem 3rem;
+                    
+                    list-style-type: decimal;
+                    text-indent: 0;
+                }
+                ul > li {
+                    margin: 0.5rem 0 0.5rem 3rem;
+                    
+                    list-style-type: none;
+                }
+
+
+            }
+        }
+
+    }
+
+    .policy,
+    .policy__chapter,
+    .policy__chapter--text{
+        display: flex;
+        flex-direction: column;
+    }
+    .policy,
+    .policy__chapter {
+        gap: 2rem;
+
+        color: $gray-text-color;
+    }
 }
 
-.policy__chapter--title
-{
-    font-size: 2.5rem;
-}
 
-.policy__chapter--subtitle {
-    font-size: 2rem;
-}
-
-.policy__chapter--text{
-    gap: 1rem;
-
-    font-size: 1.5rem;
-}
-
-table {
-    table-layout: auto;
-    width: 100%;
-}
-
-td {
-    width: max-content
-}
-
-.policy__chapter--list > li{
-    list-style-type:lower-alpha;
-    
-    margin: 0.5rem 0 0.5rem 3rem;
-}
-
-.policy__chapter--text > p, ul,ol {
-    text-indent: 3rem;
-}
-
-ol > li {
-    list-style-type: decimal;
-    margin: 0.5rem 0 0.5rem 3rem;
-    
-    text-indent: 0;
-}
-ul > li{
-  list-style-type: none;
-  margin: 0.5rem 0 0.5rem 3rem;
-}
-
-table {
-    display: flex;
-    border-collapse: collapse;
-}
-td {
-    padding: 1rem 0.5rem;
-}
 </style>

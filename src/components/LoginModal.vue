@@ -78,68 +78,31 @@
 
 <script setup>
 
-    import { ref } from 'vue';
-    const activeButton = ref('login');
+import { ref } from 'vue';
+const activeButton = ref('login');
 
-   const props = defineProps({
-        isOpen: Boolean,
-    });
+const props = defineProps({
+    isOpen: Boolean,
+});
 
-    const emit = defineEmits(['toggleModal']);
-    const closeModal = () => emit("toggleModal");
+const emit = defineEmits(['toggleModal']);
+const closeModal = () => emit("toggleModal");
 
-    function setActiveButton(btn) {
-        activeButton.value = btn;
-    }
+function setActiveButton(btn) {
+    activeButton.value = btn;
+}
 </script>
 
-<style>
-    .login-modal {
-        height: auto;
-    }
+<style lang="scss">
+.login-modal {
+    height: auto;
+
     .login-modal__buttons {
-        display: flex;
-        justify-content: center;
+    display: flex;
+    justify-content: center;
 
-        margin-bottom: 2rem;
-        
-    }
-    .login-modal__body,
-    .login-modal__body--registration {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    margin-bottom: 2rem;
 
-        gap: 2rem;
-
-        padding: 0 8rem;
-    }
-
-    .lable {
-        position: absolute;
-    }
-
-    .login-modal__input {
-        margin: 1rem 0;
-        border: 2px solid var(--gray-bg-color);
-
-        transition: 0.1s all linear;
-    }
-
-    .login-modal__input--registration {
-        margin: 1rem 0 3rem ;
-    }
-
-    .login-modal__input:hover {
-        border-color: var(--black-color);
-    }
-
-    .login-modal__input:focus {
-        border-color: var(--black-color);
-        
-        outline: none;
-    }
     .btn__login {
         display: inline-block;
 
@@ -153,24 +116,144 @@
         transition: 0.3s linear all;
     }
 
-    .login-modal__input {
-        width: 300px;
-        padding: 0.5rem;
-        font-size: 1.5rem;
+    .btn__login--active {
+        background-color: $black-color;
+        color: $white-color;
+
+        transition: 0.3s linear all;
+        }
+    }
+
+    .login-modal__body,
+    .login-modal__body--registration {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 2rem;
+
+        padding: 0 8rem;
+
+        .lable {
+            position: absolute;
+        }
+
+        .login-modal__input {
+            width: 300px;
+
+            margin: 1rem 0;
+            padding: 0.5rem;
+
+            border: 2px solid $gray-bg-color;
+
+            font-size: 1.5rem;
+
+            transition: 0.1s all linear;
+        }
+        .login-modal__input--registration {
+            margin: 1rem 0 3rem ;
+        }
+
+        .login-modal__input:hover {
+            border-color: $black-color;
+        }
+
+        .login-modal__input:focus {
+            border-color: $black-color;
+            
+            outline: none;
+        }
+
+        .login-modal__submit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+            .forgot-pass-link {
+                font-size: 1.5rem;
+                color: $black-color;
+            }
+
+            .btn__login-modal {
+                padding: 1rem 3rem;
+            }
+        }
+
+        .remember-me {
+            margin-bottom: 2rem;
+
+            font-size: 1.4rem;
+        }
+        .custom-checkbox input {
+            display: none;
+        }
+
+        .remember-me__label {
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        //Переделать
+        .checkmark {
+            display: inline-block;
+            vertical-align: middle;
+
+            width: 17px;
+            height: 17px;
+
+            margin-right: 8px;
+
+            background-color: $white-color;
+            border: 2px solid $gray-text-color;
+
+            transition: 0.1s all linear;
+
+            cursor: pointer;
+
+            position: relative;
+        }
+        .checkmark:hover {
+            border: 2px solid $black-color;
+        }
+
+        .checkmark::after {
+            display: none;
+            content: "";
+            
+            position: absolute;
+        }
+
+        .custom-checkbox input:checked + .checkmark {
+            background-color: $blue-color; /* Цвет, когда чекбокс выбран */
+            border-color: $blue-color;
+
+            transition: border 0.1s linear;
+        }
+        .custom-checkbox input:checked + .checkmark:hover {
+            background-color: $dark-blue-color; /* Цвет, когда чекбокс выбран */
+            border-color: $dark-blue-color;
+        }
+        .custom-checkbox input:checked + .checkmark::after {
+            display: block;
+            content: '✔';
+            color: $white-color;
+            left: 50%;
+            top: 45%;
+            transform: translate(-50%, -50%);
+            font-size: 1.6rem;
+        }
     }
 
     .login-modal__reCAPTCHA,
     .login-modal__agreement {
         text-align: center;
-        color: var(--gray-text-color);
+        color: $gray-text-color;
         font-size: 1rem;
-    }
-    .login-modal__reCAPTCHA {
-        opacity: 0.6;
     }
     .login-modal__reCAPTCHA--link,
     .login-modal__agreement--link {
-        color: var(--black-color);
+        color: $black-color;
         text-decoration: none;
     }
 
@@ -179,88 +262,12 @@
         text-decoration: underline;
     }
 
-
     .login-modal__agreement {
         font-size: 1.3rem;
     }
 
-    .login-modal__submit {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
+    .login-modal__reCAPTCHA {
+        opacity: 0.6;
     }
-
-    .forgot-pass-link {
-        font-size: 1.5rem;
-        color: var(--black-color);
-    }
-
-    .remember-me {
-        margin-bottom: 2rem;
-
-        font-size: 1.4rem;
-    }
-    .custom-checkbox input {
-        display: none; /* Скрываем стандартный checkbox */
-    }
-
-    .checkmark {
-        position: relative;
-        display: inline-block;
-        width: 17px;
-        height: 17px;
-        background-color: #fff;
-        border: 2px solid var(--gray-text-color);
-        vertical-align: middle;
-        margin-right: 8px;
-
-        cursor: pointer;
-
-        transition: 0.1s all linear;
-    }
-    .checkmark:hover {
-        border: 2px solid var(--black-color);
-    }
-
-    .checkmark::after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
-
-    .custom-checkbox input:checked + .checkmark {
-        background-color: var(--blue-color); /* Цвет, когда чекбокс выбран */
-        border-color: var(--blue-color);
-
-        transition: border 0.1s linear;
-    }
-    .custom-checkbox input:checked + .checkmark:hover {
-        background-color: var(--dark-blue-color); /* Цвет, когда чекбокс выбран */
-        border-color: var(--dark-blue-color);
-    }
-    .custom-checkbox input:checked + .checkmark::after {
-        display: block;
-        content: '✔'; /* Или используйте Unicode символ галочки */
-        color: white;
-        left: 50%;
-        top: 45%;
-        transform: translate(-50%, -50%);
-        font-size: 1.6rem;
-    }
-
-    .remember-me__label {
-        vertical-align: middle;
-        cursor: pointer;
-    }
-
-    .btn__login-modal {
-        padding: 1rem 3rem;
-    }
-    .btn__login--active {
-        background-color: var(--black-color);
-        color: var(--white-color);
-
-        transition: 0.3s linear all;
-    }
+}
 </style>

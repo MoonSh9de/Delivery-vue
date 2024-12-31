@@ -97,44 +97,46 @@
     </main>
 </template>
 
-<style>
+<style lang="scss">
 .contacts {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
     flex-wrap: wrap;
-    padding: 2rem;
-    margin-top: 2rem;
 
-    border: 1px solid var(--gray-bg-color);
+    margin-top: 2rem;
+    padding: 2rem;
+
+    border: 1px solid $gray-bg-color;
     border-bottom: none;
 
+    .contact {
+        width: 284px;
+
+        .contact__rest {
+            font-size: 2rem;
+        }
+        .contact__info {
+            margin: 1.3rem 0;
+
+            font-size: 1.3rem;
+        }
+
+        .contact__address {
+            margin-bottom: 0.5rem;
+
+            color: $blue-color;
+            text-decoration: underline;
+        }
+
+        .contact__phone {
+            color: $black-color;
+            text-decoration: none;
+            opacity: 0.7;
+        }
+    }
+
 }
 
-.contact {
-    width: 284px;
-}
-
-.contact__rest {
-    font-size: 2rem;
-}
-.contact__info {
-    margin: 1.3rem 0;
-
-    font-size: 1.3rem;
-}
-
-.contact__address {
-    margin-bottom: 0.5rem;
-
-    color: var(--blue-color);
-    text-decoration: underline;
-}
-
-.contact__phone {
-    color: var(--black-color);
-    text-decoration: none;
-    opacity: 0.7;
-}
 
 </style>
