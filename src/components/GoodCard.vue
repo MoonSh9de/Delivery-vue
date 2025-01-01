@@ -7,7 +7,7 @@
             <h3 class="good__title">{{good.title}}</h3>
             <p class="good__about">{{good.composition}}</p>
             <div class="good__buy">
-                <button href="" class="btn btn__cart--goods" @click="addToCart">В корзину <img src="../assets/images/other/shopping-cart-goods.svg" alt=""></button>
+                <button href="" class="btn btn__primary" @click="addToCart">В корзину <img src="../assets/images/other/shopping-cart-goods.svg" alt=""></button>
                 <p class="good__price">{{good.price}} ₽</p>
             </div>
         </div>

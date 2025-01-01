@@ -1,0 +1,55 @@
+@media (max-width: 720px) {
+    .main__header {
+        text-align: center;
+
+        font-size: 3.5rem;
+
+        line-height: 4rem;
+    }
+    .main__text {
+        text-align: center;
+    }
+
+    .footer__links {
+        justify-content: center;
+
+        margin-bottom: 2rem;
+    }
+    .footer_content {
+        justify-content: center !important; 
+    }
+}
+
+@media (max-width: 540px) {
+
+    .main__promo {
+        padding: 5.5rem;
+    }
+
+    .main__header {
+        text-align: center;
+        font-size: 2.7rem;
+        line-height: 3rem;
+    }
+
+    .main__text {
+        font-size: 2rem;
+        line-height: 2.4rem;
+    }
+
+    .delivery__about {
+        justify-content: center;
+    }
+
+
+    .goods__info {
+        gap: 1rem;
+    }
+
+}
+
+@media (max-width: 465px) {
+    .modal__footer {
+        justify-content: center !important; 
+    }
+}

@@ -73,42 +73,42 @@ import CartItem from './CartItem.vue';
 </script>
 
 <style lang="scss">
-    body:has(.modal__overlay.open) { 
-        overflow: hidden; 
-    }
-    .modal__overlay {
-        display: none;
-        align-items: center;
-        justify-content: center;
-    
-        background: rgba(0, 0, 0, 0.4);
+body:has(.modal__overlay.open) { 
+    overflow: hidden; 
+}
+.modal__overlay {
+    display: none;
+    align-items: center;
+    justify-content: center;
 
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 2;
-    }
+    background: rgba(0, 0, 0, 0.4);
 
-    .modal__overlay.open {
-        display: flex;
-    }
-    .modal__close {
-        cursor: pointer;
-    }
-    .modal {
-        display: flex;
-        flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
 
-        width: 600px;
-        height: 435px;
+.modal__overlay.open {
+    display: flex;
+}
+.modal__close {
+    cursor: pointer;
+}
+.modal {
+    display: flex;
+    flex-direction: column;
 
-        padding: 3.5rem;
+    width: 600px;
+    height: 435px;
 
-        border-radius: 0.5rem;
-        background-color: $white-color;
-    
+    padding: 3.5rem;
+
+    border-radius: 0.5rem;
+    background-color: $white-color;
+
 
     .modal__header {
         display: flex;
@@ -192,7 +192,6 @@ import CartItem from './CartItem.vue';
             transition: background 0.2s linear;
         }
     }
-
 }
 
 </style>
