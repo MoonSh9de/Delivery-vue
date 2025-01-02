@@ -17,7 +17,7 @@
 </script>
 
 <style lang="scss">
-    header {
+header {
     margin-bottom: 4rem;
     padding: 4.4rem 0 0;
 

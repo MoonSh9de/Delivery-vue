@@ -65,8 +65,16 @@ const addToCart = (good) => {
 
     margin-bottom: 4rem;
 
+    @include mobile{
+        flex-direction: column;
+        gap: 1rem;
+    }
     .goods__restaraunt--title {
         font-size: 3.6rem;
+
+        @include mobile {
+            font-size: 3.3rem;
+        }
     }
     
     .goods__raiting {
@@ -74,6 +82,7 @@ const addToCart = (good) => {
         margin-top: 0.5rem;
     }
 }
+// TODO! Сделать общий стили всех секций
 .goods {
     display: flex;
     justify-content: center;
@@ -81,7 +90,7 @@ const addToCart = (good) => {
 
     flex-wrap: wrap;
 
-    padding-bottom: 11.2rem;
+    padding-bottom: 6rem;
 }
 
 </style>

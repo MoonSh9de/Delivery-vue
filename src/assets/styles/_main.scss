@@ -59,6 +59,11 @@ h6 {
 	font-weight: 700;
 	line-height: 4.2rem;
 	color: $black-color;
+
+	@include mobile {
+		font-size: 2.7rem;
+		line-height: 3.4rem;
+	}
 }
 
 li {
@@ -87,6 +92,12 @@ main {
 	transition: background 0.1s linear;
 
 	cursor: pointer;
+
+	@include mobile {
+        padding: 0.5rem 1rem;
+
+		font-size: 1.4rem;
+    }
 }
 
 .btn__primary  {
@@ -118,15 +129,27 @@ main {
 
     font-size: 1.8rem;
     color: $orange-color;
+
+	@include mobile {
+		font-size: 1.5rem;
+	}
 }
 .price {
     display: flex;
     align-items: center;
     font-size: 1.8rem;
     color: $gray-text-color;
+
+	@include mobile {
+		font-size: 1.5rem;
+	}
 }
 .dot {
     margin: 0 1rem;
+
+	@include mobile {
+		margin: 0 0.4rem;
+	}
 }
 
 .cost {

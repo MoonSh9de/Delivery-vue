@@ -53,6 +53,10 @@ import { arrayOfRests } from '@/constants/rests';
 
     font-weight: 400;
     color: $black-promo-color;
+    @include mobile {
+        padding:  5% 10%;
+    }
+
     .promo__about {
         max-width: 53rem;
     }
@@ -63,10 +67,21 @@ import { arrayOfRests } from '@/constants/rests';
         font-weight: 700;
         line-height: 4.6rem;
         text-align: left;
+
+        @include mobile {
+            text-align: center;
+            font-size: 3rem;
+            line-height: 4rem;
+        }
     }
     .main__text {
         font-size: 2.4rem;
         line-height: 2.8rem;
+
+        @include mobile {
+            font-size: 2.2rem;
+            line-height: 2.9rem;
+        }
     }
 }
 .delivery {
@@ -78,6 +93,10 @@ import { arrayOfRests } from '@/constants/rests';
         flex-wrap: wrap;
 
         margin-bottom: 4.4rem;
+
+        @include mobile {
+		    justify-content: center;
+	    }
     }
 
     .search__form {
@@ -118,5 +137,8 @@ import { arrayOfRests } from '@/constants/rests';
     padding-bottom: 6rem;
 
     text-decoration: none;
+    @include mobile {
+        gap: 3rem;
+    }
 }
 </style>

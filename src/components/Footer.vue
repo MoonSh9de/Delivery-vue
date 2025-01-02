@@ -12,17 +12,17 @@
                     </ul>
                     <div class="footer__socials">
 
-                        <router-link to='' class="footer__social">
-                            <img src="../assets/images/other/instagram.svg" alt="#instagram">
-                        </router-link>
+                        <a :href="socials.github" class="footer__social" target="_blank">
+                            <img class="footer__social--icon" src="../assets/images/other/github.svg" traalt="#github-icon">
+                        </a>
 
-                        <router-link to='' class="footer__social">
-                            <img src="../assets/images/other/facebook.svg" alt="#facebook">
-                        </router-link>
+                        <a :href="socials.instagram" class="footer__social" target="_blank">
+                            <img class="footer__social--icon" src="../assets/images/other/instagram.svg" alt="#instagram-icon">
+                        </a>
 
-                        <router-link to='' class="footer__social">
-                            <img src="../assets/images/other/vk.svg" alt="#VK">
-                        </router-link>
+                        <a :href="socials.vk" class="footer__social" target="_blank">
+                            <img class="footer__social--icon" src="../assets/images/other/vk.svg" alt="#VK-icon">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,15 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            socials: {
+                github: "https://github.com/MoonSh9de",
+                instagram: "",
+                vk: "https://vk.com/moon_sh9de"
+            }
+        }
+    },
 }
 </script>
 
@@ -70,6 +78,10 @@ footer {
             color: $gray-color--link;
 
             transition: color 0.2s linear;
+
+            @include mobile {
+                // font-size: 1.6rem
+            }
         }
 
         .footer__link:hover {
@@ -84,10 +96,14 @@ footer {
 
         .footer__social {
             display: inline-block;
-
             transition: all 0.2s linear;
 
             cursor: pointer;
+
+            .footer__social--icon {
+                width: 26px;
+                height: 26px;
+            }
         }
 
         .footer__social:hover {

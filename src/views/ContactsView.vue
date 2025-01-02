@@ -4,7 +4,7 @@
             <h1 class="title ">Контакты</h1>
             <section class="contacts">
                 <div class="contact">
-                    <!-- Update! Links fo rests-->
+                    <!-- TODO! Links fo rests-->
                     <h3 class="contact__rest">Пицца плюс</h3>
                     <ul class="contact__info">
                         <address class="contact__address">г.Воронеж, Московский пр-кт, д. 22</address>

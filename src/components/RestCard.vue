@@ -50,6 +50,10 @@
     .restaraunt__about {
         padding: 0 2.4rem 3.5rem;
 
+        @include mobile {
+            padding: 0 1.6rem;
+        }
+
         .restaraunt__info {
             display: flex;
             justify-content: space-between;
@@ -59,6 +63,7 @@
             .restaraunt__title {
                 font-size: 2.4rem;
                 font-weight: 700;
+
             }
 
             .restaraunt__time {

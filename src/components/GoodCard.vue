@@ -37,8 +37,8 @@
 <style lang="scss">
 
 .good {
-	max-width: 38.4rem;
-	height: 41.4rem;
+	max-width: 384px;
+	min-height: auto;
 	border-radius: 0.7rem;
 	box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
 
@@ -52,7 +52,7 @@
     }
 
     .good__info {
-        padding:  0 2.4rem;
+        padding:  0 2.4rem 2.4rem;
 
         .good__title {
             margin-bottom: 1rem;
@@ -60,12 +60,19 @@
             font-size: 2.4rem;
             font-weight: 400;
 
+            @include mobile {
+                font-size: 2.1rem;
+            }
         }
 
         .good__about {
             font-size: 1.8rem;
             font-weight: 400;
             color: #8c8c8c;
+
+            @include mobile {
+                font-size: 1.5rem;
+            }
         }
 
         .good__buy {
@@ -82,6 +89,10 @@
                 font-size: 1.6rem;
                 font-weight: 400;
                 color: $white-color;
+
+                @include mobile {
+                    padding: 0.5rem 1rem;
+                }
             }
         }
     }   

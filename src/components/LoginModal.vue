@@ -3,7 +3,7 @@
          <div class="modal login-modal">
              <div class="modal__header">
                  <h2 class="modal__title">Авторизация</h2>
-                 <span class="modal__close" @click="closeModal()"><img src="../assets/images/other/close.svg" alt=""></span>
+                 <span @click="closeModal()"><img class="modal__close" src="../assets/images/other/close.svg" alt=""></span>
              </div>
              <div class="login-modal__buttons">
                 <button
@@ -199,18 +199,25 @@ function setActiveButton(btn) {
 
 <style lang="scss">
 .login-modal {
+    max-width: 600px;
     height: auto;
 
-    .login-modal__buttons {
-    display: flex;
-    justify-content: center;
+    margin: 0 1rem;
 
-    margin-bottom: 2rem;
+    .login-modal__buttons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+
+        margin-bottom: 2rem;
+
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+        }
 
     .btn__login {
         display: inline-block;
-
-        margin-right: 2rem;
         padding: 1rem 3rem;
         border-radius: 1rem;
         border: 0;
@@ -218,6 +225,10 @@ function setActiveButton(btn) {
 
         font-size: 2rem;
         transition: 0.3s linear all;
+
+        @include mobile {
+            width: 200px;
+        }
     }
 
     .btn__login--active {
@@ -236,8 +247,6 @@ function setActiveButton(btn) {
         align-items: center;
 
         gap: 2rem;
-
-        padding: 0 8rem;
 
         .lable {
             position: absolute;

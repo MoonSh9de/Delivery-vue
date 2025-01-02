@@ -32,15 +32,15 @@
 						<li>Высокое качество обслуживания</li>
 						<li>Доступные цены</li>
 					</ul>
-					<!--Добавить для ссылки тип номер и изменить класс для общих ссылок -->
+					<!--TODO ссылку с поддержкой-->
 					<p class="about__par">
 						Если вы хотите получить дополнительную информацию или узнать о специальных предложениях, пожалуйста,
-						посетите наш сайт или <span><a class="login-modal__reCAPTCHA--link" href="#">свяжитесь</a></span> с нашей службой поддержки клиентов.
+						посетите наш сайт или <span><a href="#" class="about__support--link">свяжитесь</a></span> с нашей службой поддержки клиентов.
 						Мы всегда рады помочь вам с выбором и заказом ваших любимых блюд.
 					</p>
 				</div>
 				<div class="about__address">
-					<p class="about__paragraph">
+					<p>
 						ООО "ДЕЛИВЕРИ ФУД" (ИНН 6809257710)
 						Юридический адрес: 393053, Воронежская обл., Воронеж г., Московский пр., дом № 128 
 					</p>
@@ -66,14 +66,15 @@
 	.about__text {
 		gap: 2rem;
 
-		padding: 3rem 5rem 3rem 0;
+		padding: 3rem 5rem 3rem;
 
 		border-top: 1px solid $gray-bg-color;
 		border-bottom: 1px solid $gray-bg-color;
 	}
 
 	.about__address {
-		padding: 0 5rem 2rem 0;
+		padding-bottom: 2rem;
+		text-align: center;
 	}
 
 	.about__list {
@@ -90,15 +91,15 @@
 		list-style-type: disc;
 	}
 	.about__par {
-		margin-bottom: 1rem;
-		.login-modal__reCAPTCHA--link{
-        color: $black-color;
-        text-decoration: none;
-    }
+			margin-bottom: 1rem;
+			.about__support--link {
+				color: $black-color;
+				text-decoration: none;
+		}
 
-    .login-modal__reCAPTCHA--link:hover {
-        text-decoration: underline;
-    }
+		.about__support--link:hover {
+			text-decoration: underline;
+		}
 	}
 }
 </style>

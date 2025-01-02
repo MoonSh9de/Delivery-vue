@@ -3,7 +3,7 @@
        <div class="modal">
            <div class="modal__header">
                <h2 class="modal__title">Корзина</h2>
-               <span class="modal__close" @click="closeModal()"><img src="../assets/images/other/close.svg" alt=""></span>
+               <span @click="closeModal()"><img class="modal__close" src="../assets/images/other/close.svg" alt=""></span>
            </div>
            <div v-if="cart.length > 0">
             <div class="modal__body">
@@ -96,18 +96,26 @@ body:has(.modal__overlay.open) {
 }
 .modal__close {
     cursor: pointer;
+
+    @include mobile {
+        width: 24px;
+        height: 24px;
+    }
 }
 .modal {
     display: flex;
     flex-direction: column;
-
     width: 600px;
-    height: 435px;
-
+    min-height: 435px;
     padding: 3.5rem;
 
     border-radius: 0.5rem;
     background-color: $white-color;
+
+    @include mobile{
+        margin:0 1rem;
+        padding: 2.8rem;
+    }
 
 
     .modal__header {
@@ -120,6 +128,10 @@ body:has(.modal__overlay.open) {
 
     .modal__title {
         font-size: 3.6rem;
+
+        @include mobile {
+            font-size: 3rem;
+        }
     }
 
     .modal__body {
@@ -166,24 +178,36 @@ body:has(.modal__overlay.open) {
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 530px;
+        min-height: 300px;
 
         text-align: center; 
 
         .modal__similar-subtitle {
             font-size: 3rem;
+
+            @include mobile {
+                font-size: 2.4rem;
+            }
         }
 
         .modal__similar-text {
             margin-top: 5rem;
-            margin-bottom: 3rem;
             padding: 0 4rem;
 
             font-size: 2rem;
+
+            @include mobile {
+                padding: 0;
+
+                font-size: 1.5rem;
+            }
         }
 
         .modal__link {
             width: 250px;
 
+            margin-top: auto;
             padding: 0.75rem;
 
             text-decoration: none;
