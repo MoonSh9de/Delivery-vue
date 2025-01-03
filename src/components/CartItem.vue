@@ -63,20 +63,33 @@ export default {
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-
     margin-bottom: 1.7rem;
     padding-bottom:  0.9rem;
 
     border-bottom: 1px solid $gray-underline;
 
+    @include mobile {
+
+    }
+
     .cart_item__title {
         font-size: 1.8rem;
         font-size: 400;
+
+        @include mobile {
+            font-size: 1.5rem;
+            flex-basis: 70%;
+        }
+        
     }
 
     .cart-item__controls {
         display: flex;
         align-items: center;
+
+        @include mobile {
+            flex-basis: 100%;
+        }
     }
 
     .cart-item__control--count {
@@ -85,6 +98,10 @@ export default {
         text-align: center;
         font-size: 1.6rem;
         font-weight: 400;
+
+        @include mobile {
+           font-size: 1.5rem;
+        }
     }
     .cart-item__controls button {
         padding: 5px 16px;
@@ -101,6 +118,10 @@ export default {
         transition: all 0.2s linear;
 
         cursor: pointer;
+
+        @include mobile {
+            padding: 5px 12px;
+        }
     }
 
     .cart-item__controls button:hover {
@@ -116,6 +137,14 @@ export default {
         font-size: 2rem;
         font-weight: 700;
         color: $black-color;
+
+        @include mobile {
+            text-align: right;
+            flex-basis: 25%;
+            margin: 0;
+
+            font-size: 1.6rem;
+        }
     }
 }
 

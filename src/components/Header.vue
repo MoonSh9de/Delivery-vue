@@ -19,9 +19,13 @@
 <style lang="scss">
 header {
     margin-bottom: 4rem;
-    padding: 4.4rem 0 0;
+    padding: 3rem 0;
 
-    background-color: $white-color;
+    background-color: $blue-color;
+
+    position: sticky;
+    top: 0;
+    z-index: 2;
 
     .container--header {
         display: flex;

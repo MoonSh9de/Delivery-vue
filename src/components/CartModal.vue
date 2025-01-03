@@ -15,7 +15,7 @@
                 </div>
 
                     <div class="modal__footer">
-                        <p class="modal__footer--price">{{ animatedTotalPrice}} ₽</p>
+                        <p class="price--blue">Итог: {{ animatedTotalPrice}} ₽</p>
                         <div class="modal__footer--controls">
                             <button class="btn btn__primary ">Оформить заказ</button>
                             <button class="btn btn__outline " @click="clearCart()">Отмена</button>
@@ -106,7 +106,7 @@ body:has(.modal__overlay.open) {
     display: flex;
     flex-direction: column;
     width: 600px;
-    min-height: 435px;
+    min-height: 445px;
     padding: 3.5rem;
 
     border-radius: 0.5rem;
@@ -160,6 +160,7 @@ body:has(.modal__overlay.open) {
         .modal__footer--controls {
             display: flex;
             gap: 1rem;
+
         }
 
         .modal__footer--price {

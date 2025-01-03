@@ -7,8 +7,8 @@
             <h3 class="good__title">{{good.title}}</h3>
             <p class="good__about">{{good.composition}}</p>
             <div class="good__buy">
+                <p class="price--blue">{{good.price}} ₽</p>
                 <button href="" class="btn btn__primary" @click="addToCart">В корзину <img src="../assets/images/other/shopping-cart-goods.svg" alt=""></button>
-                <p class="good__price">{{good.price}} ₽</p>
             </div>
         </div>
     </div>
@@ -81,19 +81,6 @@
             justify-content: space-between;
 
             margin-top: 3rem;
-
-            .good__price {
-                padding: 0.8rem 1.6rem;
-                background-color: $black-color;
-                text-align: center;
-                font-size: 1.6rem;
-                font-weight: 400;
-                color: $white-color;
-
-                @include mobile {
-                    padding: 0.5rem 1rem;
-                }
-            }
         }
     }   
 }

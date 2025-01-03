@@ -49,7 +49,7 @@ footer {
     width: 100%;
 
     margin-top: auto;
-    padding: 6rem 0;
+    padding: 4rem 0;
 
     .container--footer {
         display: flex;

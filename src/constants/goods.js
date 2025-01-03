@@ -22,14 +22,14 @@ export const arrayOfGoods = [
     },
     {
         id: 3,
-        title: 'Цезарь маки хl',
+        title: 'Цезарь маки ',
         composition: 'Рис, куриная грудка копченая, икра масаго, томат, айсберг, соус цезарь...',
         price: 250,
         img: "cezar_maki_xl.jpg"
     },
     {
         id: 4,
-        title: 'Ясай маки стандарт 185 г',
+        title: 'Ясай маки стандарт',
         composition: 'Рис, помидор свежий, перец болгарский, авокадо, огурец, айсберг',
         price: 250,
         img: "yasai_maki_standart.jpg"

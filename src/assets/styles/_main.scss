@@ -101,10 +101,12 @@ main {
 }
 
 .btn__primary  {
-	background-color: $blue-color;
-	border: 1px solid $blue-color;
+	background-color: $black-color;
+	border: 1px solid $black-color;
 
 	color: $white-color;
+
+	transition: 0.2s all linear;
 }
 
 .btn__primary:hover {
@@ -113,10 +115,19 @@ main {
 
 .btn__outline {
 	background-color: $white-color;
-	border: 1px solid rgb(217, 217, 217);
+	border: 1px solid $gray-text-color;
 	
-	color: $gray-color--link;
+	color: $gray-text-color;
+
+	transition: 0.2s all linear;
 }
+
+.btn__outline:hover {
+	background-color: $dark-blue-color;
+	border: 1px solid $black-color;
+
+}
+
 
 .no-scroll {
 	overflow: hidden;
@@ -157,4 +168,17 @@ main {
 }
 .star_img {
     margin-bottom: 0.3rem;
+}
+
+.price--blue {
+	padding: 0.8rem 1.6rem;
+	background-color: $blue-color;
+	text-align: center;
+	font-size: 1.6rem;
+	font-weight: 400;
+	color: $white-color;
+
+	@include mobile {
+		padding: 0.5rem 1rem;
+	}
 }
