@@ -25,18 +25,7 @@
             <section class="login-modal__body" v-if="activeButton === 'login'">
                 <form action="" method="get">
                     <p>
-                        <input
-                        ref="phoneInput"
-                        class="login-modal__input"
-                        type="text"
-                        name="phone"
-                        :placeholder="placeholder"
-                        v-model="phoneNumber"
-                        @focus="onFocus"
-                        @input="onInput"
-                        @keydown="onKeydown"
-                        autocomplete="off"
-                        required/>
+                        <PhoneInput/>
                     </p>
                     <p>
                         <input
@@ -100,6 +89,7 @@
 
 <script setup>
 import { nextTick, ref } from 'vue';
+import PhoneInput from './PhoneInput.vue';
 const activeButton = ref('login');
 
 const props = defineProps({
@@ -112,89 +102,6 @@ const closeModal = () => emit("toggleModal");
 function setActiveButton(btn) {
     activeButton.value = btn;
 }
-
-//Форма
-// const phoneInput = ref(null); // Ссылка на элемент <input>
-// const phoneNumber = ref('');
-// const placeholder = ref('+7(___)___-__-__');
-// const mask = ref('+7(___)___-__-__');
-// const isFocused = ref(false);
-
-// // Позиции цифр в маске (индексы символов, которые заменяются цифрами)
-// const digitPositions = [3, 4, 5, 7, 8, 9, 11, 12, 14, 15];
-
-// const onFocus = () => {
-//   isFocused.value = true;
-//   if (!phoneNumber.value) {
-//     phoneNumber.value = mask.value;
-//   }
-
-//   // Установить курсор на первую позицию для ввода цифры
-//   nextTick(() => {
-//     if (phoneInput.value) {
-//       phoneInput.value.setSelectionRange(3, 3);
-//     }
-//   });
-// };
-
-// const onInput = (event) => {
-//   if (!isFocused.value) return;
-
-//   const input = event.target;
-//   const value = input.value;
-
-//   // Убираем все символы, кроме цифр
-//   const cleanedValue = value.replace(/\D/g, '');
-
-// // Применяем маску
-//   let maskedValue = mask.value.split('');
-//   let digitIndex = 0;
-
-//   for (let i = 0; i < digitPositions.length; i++) {
-//     if (cleanedValue[digitIndex]) {
-//     maskedValue[digitPositions[i]] = cleanedValue[digitIndex];
-//       digitIndex++;
-//     } else {
-//       maskedValue[digitPositions[i]] = '_'; // Возвращаем '_', если цифры закончились
-//     }
-//   }
-
-//   // Обновляем значение в поле ввода
-//   phoneNumber.value = maskedValue.join('');
-
-//   // Устанавливаем курсор на следующую позицию для ввода
-//   nextTick(() => {
-//     if (phoneInput.value) {
-//       const cursorPosition = digitPositions[digitIndex] || mask.value.length;
-//       phoneInput.value.setSelectionRange(cursorPosition, cursorPosition);
-//     }
-//   });
-// };
-
-// // Обработка удаления символов (Backspace)
-// const onKeydown = (event) => {
-//   if (event.key === 'Backspace') {
-//     const input = event.target;
-//     const cursorPosition = input.selectionStart;
-
-//     // Если курсор находится на позиции цифры, заменяем её на '_'
-//     if (digitPositions.includes(cursorPosition - 1)) {
-//       const value = phoneNumber.value.split('');
-//       value[cursorPosition - 1] = '_';
-//       phoneNumber.value = value.join('');
-
-//       // Устанавливаем курсор на предыдущую позицию
-//       nextTick(() => {
-//         if (phoneInput.value) {
-//           phoneInput.value.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-//         }
-//       });
-
-//       event.preventDefault(); // Отменяем стандартное поведение Backspace
-//     }
-//   }
-// };
-
 </script>
 
 <style lang="scss">
