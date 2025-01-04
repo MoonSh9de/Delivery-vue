@@ -17,11 +17,6 @@ export default {
             placeholderClickValue: "+7(___)___-__-__",
         };
     },
-    methods() {
-
-
-    }
-
 };
 </script>
 
