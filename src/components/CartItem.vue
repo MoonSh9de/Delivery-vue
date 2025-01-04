@@ -29,7 +29,6 @@ export default {
     },
 
     watch: {
-
         'item.count': {
             handler() {
                 this.itemPrice = this.item.price * this.item.count;

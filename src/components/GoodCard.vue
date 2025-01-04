@@ -29,9 +29,10 @@
             },
             addToCart() {
                 this.$emit('addToCart', this.good);
-            }
+            },
         }
     }
+    
 </script>
 
 <style lang="scss">
@@ -43,6 +44,8 @@
 	box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
 
 	transition: all 0.2s linear;
+
+    cursor: pointer;
 
     .good__image {
         width: 100%;
@@ -84,4 +87,9 @@
         }
     }   
 }
+
+.good:hover {
+    transform: scale(1.05);
+}
 </style>
+

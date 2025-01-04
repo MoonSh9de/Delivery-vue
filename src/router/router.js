@@ -43,7 +43,7 @@ const router = createRouter({
       name: "UserConsentView",
       component: UserConsentView,
       props: true,
-    }
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     return {top: 0 };
