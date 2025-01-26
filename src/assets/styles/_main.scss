@@ -18,13 +18,13 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: $dark-blue-color;
+	background-color: $black-color;
 	border-radius: 5px;
 }
 
 /* Для Firefox*/
 body {
-	scrollbar-color: $dark-blue-color $gray-bg-color; /* Цвет бегунка и дорожки */
+	scrollbar-color: $black-color $gray-bg-color; /* Цвет бегунка и дорожки */
 }
 
 *,

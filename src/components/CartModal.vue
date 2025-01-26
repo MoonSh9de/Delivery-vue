@@ -17,7 +17,7 @@
                     <div class="modal__footer">
                         <p class="price--blue">Итог: {{ animatedTotalPrice}} ₽</p>
                         <div class="modal__footer--controls">
-                            <button class="btn btn__primary ">Оформить заказ</button>
+                            <button class="btn btn__primary " @click="store.closeCartAndOpenLogin()">Оформить заказ</button>
                             <button class="btn btn__outline " @click="clearCart()">Отмена</button>
                         </div>
                     </div>
@@ -33,10 +33,11 @@
 </template>
 
 <script setup>
-    import { store } from '@/store/store';
-import { computed, ref, watch } from 'vue';
+import {store} from '@/store/store';
+import {computed, ref, watch} from 'vue';
 import CartItem from './CartItem.vue';
-    const props = defineProps({
+
+const props = defineProps({
         isOpen: Boolean,
         cart: Array
     });

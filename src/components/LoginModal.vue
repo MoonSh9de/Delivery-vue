@@ -23,9 +23,16 @@
             </div>
                 
             <section class="login-modal__body" v-if="activeButton === 'login'">
-                <form action="" method="get">
+                <form @submit.prevent>
                     <p>
-                        <PhoneInput/>
+                      <input
+                          ref="phoneInput"
+                          class="login-modal__input login-modal__input--phone"
+                          type="text"
+                          name="phone"
+                          placeholder="Номер телефона"
+                          required
+                      />
                     </p>
                     <p>
                         <input
@@ -55,14 +62,26 @@
             </section>
 
             <section class="login-modal__body--registration" v-else>
-                <form action="" method="get">
+                <form @submit.prevent>
                     <p>
-                        <input
-                        class="login-modal__input login-modal__input--registration"
-                        type="text"
-                        name="phone"
-                        placeholder="Номер телефона"
-                        required>
+                      <input
+                          ref="phoneInput"
+                          class="login-modal__input login-modal__input--phone"
+                          type="text"
+                          name="phone"
+                          placeholder="Номер телефона"
+                          required
+                      />
+                    </p>
+
+                    <p>
+                      <input
+                          class="login-modal__input"
+                          type="password"
+                          name="password"
+                          id="password"
+                          placeholder="Пароль"
+                          required>
                     </p>
 
                     <div class="login-modal__submit">
@@ -88,8 +107,8 @@
 </template>
 
 <script setup>
-import { nextTick, ref } from 'vue';
-import PhoneInput from './PhoneInput.vue';
+import {ref} from 'vue';
+
 const activeButton = ref('login');
 
 const props = defineProps({
