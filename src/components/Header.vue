@@ -21,7 +21,7 @@ header {
     margin-bottom: 4rem;
     padding: 3rem 0;
 
-    background-color: $blue-color;
+    background-color: rgba($blue-color,0.95);
 
     position: sticky;
     top: 0;

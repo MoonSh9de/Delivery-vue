@@ -1,6 +1,6 @@
-import { arrayOfGoods } from "@/constants/goods";
-import { arrayOfRests } from "@/constants/rests";
-import { reactive, ref } from "vue";
+import {arrayOfGoods} from "@/constants/goods";
+import {arrayOfRests} from "@/constants/rests";
+import {reactive, ref} from "vue";
 
 export const store = reactive ({
     isOpen: ref(false),
@@ -17,6 +17,11 @@ export const store = reactive ({
     },
     clearCart() {
         this.cart.length = 0;
+    },
+    closeCartAndOpenLogin() {
+        this.isOpen = false; // Close the current modal
+        this.modalType = 'login'; // Set the modal type to 'login'
+        this.isOpen = true; // Open the login modal
     }
 })
 
